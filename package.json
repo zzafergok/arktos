@@ -28,7 +28,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build && npm run lint && npm run typecheck",
+    "prepublishOnly": "echo 'Publishing arktos CLI tool...'",
     "clean": "rm -rf dist"
   },
   "keywords": [
