@@ -1,0 +1,172 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum LoginType {
+  EMAIL
+  GOOGLE
+  GITHUB
+}
+
+enum EmailVerificationStatus {
+  PENDING
+  VERIFIED
+  EXPIRED
+}
+
+model User {
+  id                String                   @id @default(cuid())
+  email             String                   @unique
+  username          String?                  @unique
+  firstName         String?
+  lastName          String?
+  avatar            String?
+  password          String?
+  role              Role                     @default(USER)
+  isActive          Boolean                  @default(true)
+  isEmailVerified   Boolean                  @default(false)
+  emailVerifiedAt   DateTime?
+  lastLoginAt       DateTime?
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+  
+  // Relations
+  loginLogs         LoginLog[]
+  emailVerifications EmailVerification[]
+  refreshTokens     RefreshToken[]
+  passwordResets    PasswordReset[]
+  
+  @@map("users")
+}
+
+model LoginLog {
+  id        String    @id @default(cuid())
+  userId    String
+  loginType LoginType @default(EMAIL)
+  ipAddress String?
+  userAgent String?
+  location  String?
+  isSuccess Boolean   @default(true)
+  failReason String?
+  createdAt DateTime  @default(now())
+  
+  // Relations
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("login_logs")
+}
+
+model EmailVerification {
+  id        String                  @id @default(cuid())
+  userId    String
+  token     String                  @unique
+  email     String
+  status    EmailVerificationStatus @default(PENDING)
+  expiresAt DateTime
+  createdAt DateTime                @default(now())
+  
+  // Relations
+  user      User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("email_verifications")
+}
+
+model PasswordReset {
+  id        String    @id @default(cuid())
+  userId    String
+  token     String    @unique
+  isUsed    Boolean   @default(false)
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  
+  // Relations
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("password_resets")
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String
+  token     String    @unique
+  isRevoked Boolean   @default(false)
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  
+  // Relations
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("refresh_tokens")
+}
+
+model Booking {
+  id          String    @id @default(cuid())
+  userId      String
+  title       String
+  description String?
+  startDate   DateTime
+  endDate     DateTime
+  status      String    @default("PENDING")
+  totalAmount Decimal?  @db.Decimal(10, 2)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@map("bookings")
+}
+
+model Product {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  price       Decimal   @db.Decimal(10, 2)
+  category    String?
+  isActive    Boolean   @default(true)
+  stock       Int       @default(0)
+  images      String[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@map("products")
+}
+
+model Blog {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String
+  excerpt     String?
+  isPublished Boolean   @default(false)
+  authorId    String?
+  tags        String[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@map("blogs")
+}
+
+model Payment {
+  id            String    @id @default(cuid())
+  userId        String?
+  amount        Decimal   @db.Decimal(10, 2)
+  currency      String    @default("USD")
+  status        String    @default("PENDING")
+  paymentMethod String?
+  transactionId String?   @unique
+  metadata      Json?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@map("payments")
+}

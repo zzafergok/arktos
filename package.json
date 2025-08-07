@@ -1,0 +1,108 @@
+{
+  "name": "arktos",
+  "version": "1.0.0",
+  "description": "🚀 A modern Node.js backend boilerplate with TypeScript, Express, JWT authentication, Prisma ORM, PostgreSQL, and Resend email service. Includes complete authentication flow, security middleware, and database management.",
+  "main": "bin/cli.js",
+  "bin": {
+    "create-arktos": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "prisma/",
+    "template.package.json",
+    ".env.example",
+    "vercel.json",
+    "tsconfig.json",
+    "eslint.config.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node bin/cli.js",
+    "dev": "ts-node --esm bin/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run lint && npm run typecheck",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "express",
+    "jwt",
+    "authentication",
+    "prisma",
+    "orm",
+    "postgresql",
+    "database",
+    "resend",
+    "email",
+    "auth",
+    "security",
+    "middleware",
+    "boilerplate",
+    "template",
+    "generator",
+    "cli",
+    "backend",
+    "api",
+    "rest",
+    "starter",
+    "scaffold"
+  ],
+  "author": {
+    "name": "Zafer Gök",
+    "email": "gok.zaferr@gmail.com",
+    "url": "https://github.com/zzafergok"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzafergok/arktos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zzafergok/arktos/issues"
+  },
+  "homepage": "https://github.com/zzafergok/arktos#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/zzafergok"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "inquirer": "^10.0.0",
+    "ora": "^8.0.1",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.7.0"
+  }
+}

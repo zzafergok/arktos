@@ -1,0 +1,82 @@
+{
+  "name": "arktos-backend",
+  "version": "1.0.0",
+  "description": "A modern Node.js backend API built with Arktos boilerplate",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "prisma generate",
+    "start": "node dist/app.js",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/app.ts",
+    "vercel-build": "prisma generate && npm run build",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:reset": "npx prisma migrate reset --force && npm run db:seed",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "health": "curl -f http://localhost:3001/health || exit 1"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "express",
+    "jwt",
+    "authentication",
+    "prisma",
+    "orm",
+    "postgresql",
+    "database",
+    "resend",
+    "email",
+    "auth",
+    "security",
+    "middleware",
+    "backend",
+    "api",
+    "rest"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.13.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "resend": "^6.0.0",
+    "winston": "^3.17.0",
+    "zod": "^4.0.15"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.2.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.3.0",
+    "prisma": "^6.13.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.0"
+  }
+}

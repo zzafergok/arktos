@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to {{appName}}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #10b981;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #059669;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #10b981;
+            text-decoration: none;
+        }
+        .divider {
+            border-top: 1px solid #e5e7eb;
+            margin: 30px 0;
+        }
+        .welcome-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">{{appName}}</div>
+        </div>
+        
+        <h1>Welcome, {{firstName}}! 🎉</h1>
+        
+        <div class="welcome-box">
+            <p><strong>Congratulations!</strong> Your account has been successfully verified and you're now part of the {{appName}} community.</p>
+        </div>
+        
+        <p>We're thrilled to have you on board! Here's what you can do next:</p>
+        
+        <ul>
+            <li>Complete your profile to get the most out of our services</li>
+            <li>Explore our features and tools</li>
+            <li>Connect with other users in your area</li>
+            <li>Start using our platform to its full potential</li>
+        </ul>
+        
+        <div style="text-align: center;">
+            <a href="{{loginUrl}}" class="button">Get Started</a>
+        </div>
+        
+        <p>If you have any questions or need help getting started, don't hesitate to reach out to our support team. We're here to help!</p>
+        
+        <div class="divider"></div>
+        
+        <div class="footer">
+            <p>Welcome aboard!</p>
+            <p>The {{appName}} Team</p>
+            <br>
+            <p>Need help? Contact our support team or visit our <a href="{{frontendUrl}}">help center</a>.</p>
+            <p>&copy; 2025 {{appName}}. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
