@@ -1,5 +1,5 @@
 {
-  "name": "arktos",
+  "name": "create-arktos",
   "version": "1.0.0",
   "description": "🚀 A modern Node.js backend boilerplate with TypeScript, Express, JWT authentication, Prisma ORM, PostgreSQL, and Resend email service. Includes complete authentication flow, security middleware, and database management.",
   "main": "bin/cli.js",
