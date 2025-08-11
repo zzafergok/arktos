@@ -32,6 +32,14 @@ function createProject(projectName) {
     console.log('📋 Copying template files...');
     copyDir(TEMPLATE_DIR, projectName);
 
+    // Copy prisma directory
+    console.log('🗄️  Copying database schema...');
+    const prismaDir = path.join(ROOT_DIR, 'prisma');
+    const targetPrismaDir = path.join(projectName, 'prisma');
+    if (fs.existsSync(prismaDir)) {
+      copyDir(prismaDir, targetPrismaDir);
+    }
+
     // Copy template config files
     console.log('📝 Copying configuration files...');
     copyTemplateFiles(projectName);
