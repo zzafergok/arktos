@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1] - 2026-09-26
+
+### 🐛 Bug Fixes & Template Refinements
+
+- **TypeScript Compilation:** Fixed Express 5 `req.params.token` array/string union type conflict in `auth.controller.ts` and missing user relation property inference.
+- **Express 5 Portability:** Explicitly typed `Express` application and `Router` instances in `src/app.ts` and `src/routes/`, fixing `TS2742` declaration errors.
+- **Backend Application tsconfig:** Disabled declaration generation (`declaration: false`) in template `tsconfig.json` suited for application builds.
+- **pnpm v12 Build Compatibility:** Added template `pnpm-workspace.yaml` with pre-approved Prisma build scripts (`allowBuilds`) to prevent `ERR_PNPM_IGNORED_BUILDS`.
+- **ESLint v9 Configuration:** Added `files: ['src/**/*.ts', 'src/**/*.js']` to `eslint.config.js` to ensure TypeScript files are properly linted.
+
 ## [2.0.0] - 2026-09-26
 
 ### ⚖️ Licensing & Commercial Protection

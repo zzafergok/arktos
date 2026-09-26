@@ -353,7 +353,16 @@ export const logout = async (req: Request, res: Response): Promise<void> => {
 
 export const verifyEmail = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { token } = req.params;
+    const rawToken = req.params.token;
+    const token = Array.isArray(rawToken) ? rawToken[0] : rawToken;
+
+    if (!token) {
+      res.status(400).json(createErrorResponse(
+        'Verification token is required',
+        ERROR_CODES.AUTH_INVALID_TOKEN
+      ));
+      return;
+    }
 
     const verification = await prisma.emailVerification.findUnique({
       where: { token },

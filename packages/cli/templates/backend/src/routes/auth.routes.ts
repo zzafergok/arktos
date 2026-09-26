@@ -11,7 +11,7 @@ import {
 } from '../controllers/auth.controller';
 import { auth, rateLimiter } from '../middleware';
 
-const router = Router();
+const router: Router = Router();
 
 // Public routes (with auth rate limiting)
 router.post('/register', rateLimiter.auth, register);

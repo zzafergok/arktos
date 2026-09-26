@@ -3,7 +3,7 @@ import authRoutes from './auth.routes';
 import { createSuccessResponse } from '../utils/response';
 import DatabaseService from '../services/database.service';
 
-const router = Router();
+const router: Router = Router();
 
 // Health check endpoint
 router.get('/health', async (req: Request, res: Response) => {

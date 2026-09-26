@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import routes from './routes';
 import { errorHandling, securityMiddleware, rateLimiter } from './middleware';
@@ -8,7 +8,7 @@ import logger from './config/logger';
 // Load environment variables
 dotenv.config();
 
-const app = express();
+const app: Express = express();
 const PORT = process.env.PORT || 3001;
 
 // Security middleware stack
