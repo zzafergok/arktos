@@ -20,3 +20,4 @@
     }
   ]
 }
+EOF < /dev/null

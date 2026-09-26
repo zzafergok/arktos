@@ -2,33 +2,35 @@
 
 > **A modern Node.js backend boilerplate generator with TypeScript, Express, JWT authentication, Prisma ORM, PostgreSQL, and Resend email service.**
 
-[![npm version](https://badge.fury.io/js/arktos.svg)](https://www.npmjs.com/package/arktos)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/create-arktos.svg)](https://www.npmjs.com/package/create-arktos)
+[![License: BSL 1.1](https://img.shields.io/badge/License-BSL%201.1-blue.svg)](./LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
 
 ## ⚡ Quick Start
 
-Create a new backend project instantly:
+Create a new production backend API in seconds:
 
 ```bash
-# Create a new project
-npx create-arktos my-awesome-api
+# Using pnpm (Recommended)
+pnpm create arktos my-api
+
+# Or using npx
+npx create-arktos my-api
 
 # Navigate to project
-cd my-awesome-api
-
-# Install dependencies
-npm install
+cd my-api
 
 # Set up environment variables
 cp .env.example .env
-# Edit .env with your database and API keys
 
-# Set up database
-npx prisma migrate dev
+# Install dependencies
+pnpm install
+
+# Run database migrations
+pnpm dlx prisma migrate dev
 
 # Start development server
-npm run dev
+pnpm dev
 ```
 
 Your backend API is now running at `http://localhost:3001` 🚀
@@ -36,6 +38,7 @@ Your backend API is now running at `http://localhost:3001` 🚀
 ## 🌟 What's Included
 
 ### 🔐 **Complete Authentication System**
+
 - JWT-based authentication with access & refresh tokens
 - User registration with email verification
 - Password reset functionality
@@ -43,6 +46,7 @@ Your backend API is now running at `http://localhost:3001` 🚀
 - Login attempt logging and security monitoring
 
 ### 🛡️ **Security First**
+
 - Rate limiting (general, auth, and API-specific)
 - CORS protection with configurable origins
 - Helmet.js security headers
@@ -51,6 +55,7 @@ Your backend API is now running at `http://localhost:3001` 🚀
 - Request logging and monitoring
 
 ### 🗄️ **Database & ORM**
+
 - Prisma ORM with PostgreSQL
 - Pre-configured models (User, LoginLog, EmailVerification, etc.)
 - Database health monitoring
@@ -58,11 +63,13 @@ Your backend API is now running at `http://localhost:3001` 🚀
 - Neon serverless PostgreSQL ready
 
 ### 📧 **Email Service**
+
 - Resend integration for transactional emails
 - Pre-built email templates (welcome, verification, password reset)
 - HTML email templates included
 
 ### 🏗️ **Modern Architecture**
+
 - TypeScript with strict type checking
 - Modular middleware system
 - Singleton database service
@@ -71,6 +78,7 @@ Your backend API is now running at `http://localhost:3001` 🚀
 - Clean project structure
 
 ### 🚀 **Deployment Ready**
+
 - Vercel configuration included
 - Environment variable validation
 - Production build scripts
@@ -123,29 +131,32 @@ my-awesome-api/
 ## 🔗 API Endpoints
 
 ### Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Register new user |
-| POST | `/api/auth/login` | User login |
-| POST | `/api/auth/refresh` | Refresh access token |
-| POST | `/api/auth/logout` | User logout |
-| GET | `/api/auth/verify-email/:token` | Verify email address |
-| POST | `/api/auth/resend-verification` | Resend verification email |
-| POST | `/api/auth/forgot-password` | Request password reset |
-| POST | `/api/auth/reset-password` | Reset password |
+
+| Method | Endpoint                        | Description               |
+| ------ | ------------------------------- | ------------------------- |
+| POST   | `/api/auth/register`            | Register new user         |
+| POST   | `/api/auth/login`               | User login                |
+| POST   | `/api/auth/refresh`             | Refresh access token      |
+| POST   | `/api/auth/logout`              | User logout               |
+| GET    | `/api/auth/verify-email/:token` | Verify email address      |
+| POST   | `/api/auth/resend-verification` | Resend verification email |
+| POST   | `/api/auth/forgot-password`     | Request password reset    |
+| POST   | `/api/auth/reset-password`      | Reset password            |
 
 ### User Profile
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/auth/profile` | Get user profile |
-| PUT | `/api/auth/profile` | Update user profile |
-| POST | `/api/auth/change-password` | Change password |
+
+| Method | Endpoint                    | Description         |
+| ------ | --------------------------- | ------------------- |
+| GET    | `/api/auth/profile`         | Get user profile    |
+| PUT    | `/api/auth/profile`         | Update user profile |
+| POST   | `/api/auth/change-password` | Change password     |
 
 ### Health & Status
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/health` | Basic health check |
-| GET | `/api/health` | Detailed health with database status |
+
+| Method | Endpoint      | Description                          |
+| ------ | ------------- | ------------------------------------ |
+| GET    | `/health`     | Basic health check                   |
+| GET    | `/api/health` | Detailed health with database status |
 
 ## 🛠️ Development Commands
 
@@ -185,6 +196,7 @@ npm run health           # Check API health
 After creating your project, you'll need to set up these services:
 
 ### 1. **Database Setup** (Neon PostgreSQL)
+
 ```bash
 # 1. Sign up at neon.tech
 # 2. Create a new database project
@@ -196,6 +208,7 @@ DIRECT_URL="postgresql://user:password@host:port/db?sslmode=require"
 ```
 
 ### 2. **Email Service** (Resend)
+
 ```bash
 # 1. Sign up at resend.com
 # 2. Create API key in dashboard
@@ -206,6 +219,7 @@ FROM_EMAIL="noreply@yourdomain.com"
 ```
 
 ### 3. **JWT Secrets**
+
 ```bash
 # Generate secure random strings
 openssl rand -base64 32
@@ -215,7 +229,9 @@ JWT_REFRESH_SECRET="your-super-secure-refresh-secret"
 ```
 
 ### 4. **Complete .env Example**
+
 Your `.env` file should look like this:
+
 ```bash
 # Application
 NODE_ENV=development
@@ -248,6 +264,7 @@ CORS_ORIGIN="http://localhost:3000,https://yourdomain.com"
 The generated project includes these pre-configured models:
 
 ### **Core Authentication**
+
 - **Users** - Complete user management with roles (USER, ADMIN, MODERATOR)
 - **LoginLog** - Comprehensive audit trail for all authentication attempts
 - **EmailVerification** - Secure email verification with token expiration
@@ -255,9 +272,10 @@ The generated project includes these pre-configured models:
 - **RefreshToken** - JWT refresh token management with revocation
 
 ### **Business Models** (Ready to extend)
+
 - **Booking** - For appointment/reservation systems
 - **Product** - For e-commerce applications
-- **Blog** - For content management systems  
+- **Blog** - For content management systems
 - **Payment** - For payment processing integration
 
 All models include proper relationships, indexes, and cascade deletes for data integrity.
@@ -265,6 +283,7 @@ All models include proper relationships, indexes, and cascade deletes for data i
 ## 🔐 Security Features
 
 ### **Authentication & Authorization**
+
 - JWT-based authentication with access & refresh tokens
 - Role-based access control (RBAC)
 - Email verification workflow
@@ -272,6 +291,7 @@ All models include proper relationships, indexes, and cascade deletes for data i
 - Session management with token revocation
 
 ### **Security Middleware**
+
 - **Rate Limiting** - Multi-tier limits (general, auth, API)
 - **CORS Protection** - Configurable origins and credentials
 - **Helmet.js** - Comprehensive security headers
@@ -279,12 +299,14 @@ All models include proper relationships, indexes, and cascade deletes for data i
 - **Request Validation** - Zod-based schema validation
 
 ### **Monitoring & Auditing**
+
 - Login attempt logging with IP and user agent tracking
 - Failed login attempt monitoring
 - Request logging with Winston
 - Database connection health monitoring
 
 ### **Password Security**
+
 - Bcrypt hashing with configurable salt rounds
 - Password strength requirements
 - Secure password reset tokens
@@ -343,6 +365,7 @@ RUN npm run build
 EXPOSE 3001
 CMD ["npm", "start"]
 ```
+
 </details>
 
 <details>
@@ -351,11 +374,13 @@ CMD ["npm", "start"]
 1. Connect your GitHub repository
 2. Set environment variables
 3. Deploy automatically on push
+
 </details>
 
 ## 🧪 Testing Your API
 
 ### **Health Check**
+
 ```bash
 # Test basic health
 curl http://localhost:3001/health
@@ -365,6 +390,7 @@ curl http://localhost:3001/api/health
 ```
 
 ### **Authentication Flow**
+
 ```bash
 # Register a new user
 curl -X POST http://localhost:3001/api/auth/register \
@@ -384,6 +410,7 @@ curl -X GET http://localhost:3001/api/auth/profile \
 ## 📚 Usage Examples
 
 ### **Basic Express Server**
+
 The generated `src/app.ts` provides a production-ready Express server:
 
 ```typescript
@@ -407,6 +434,7 @@ export default app;
 ```
 
 ### **Adding Custom Routes**
+
 ```typescript
 // src/routes/custom.routes.ts
 import { Router } from 'express';
@@ -415,14 +443,11 @@ import { middleware } from '../middleware';
 const router = Router();
 
 // Protected route example
-router.get('/protected', 
-  middleware.auth.required,
-  (req, res) => {
-    res.json({ message: 'Hello authenticated user!' });
-  }
-);
+router.get('/protected', middleware.auth.required, (req, res) => {
+  res.json({ message: 'Hello authenticated user!' });
+});
 
-// Public route example  
+// Public route example
 router.get('/public', (req, res) => {
   res.json({ message: 'Hello world!' });
 });
@@ -431,6 +456,7 @@ export default router;
 ```
 
 ### **Database Queries**
+
 ```typescript
 // Using the database service
 import DatabaseService from '../services/database.service';
@@ -445,7 +471,7 @@ const users = await prisma.user.findMany({
     email: true,
     firstName: true,
     lastName: true,
-  }
+  },
 });
 
 // Example: Create a booking
@@ -455,7 +481,7 @@ const booking = await prisma.booking.create({
     title: 'Meeting',
     startDate: new Date(),
     endDate: new Date(Date.now() + 3600000), // 1 hour later
-  }
+  },
 });
 ```
 
@@ -464,17 +490,20 @@ const booking = await prisma.booking.create({
 We welcome contributions! Here's how you can help:
 
 ### **Reporting Issues**
+
 - Use GitHub Issues for bug reports
 - Include steps to reproduce
 - Provide environment details
 
-### **Feature Requests**  
+### **Feature Requests**
+
 - Open a GitHub Issue with the "enhancement" label
 - Describe the use case and expected behavior
 
 ### **Pull Requests**
+
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`  
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
 3. Make your changes
 4. Add tests if applicable
 5. Commit: `git commit -m 'Add amazing feature'`
@@ -483,12 +512,12 @@ We welcome contributions! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **Business Source License 1.1 (BSL 1.1)** - free for personal, educational, testing, and evaluation purposes; commercial and production use requires a commercial license from the author. See the [LICENSE](LICENSE) file for complete terms. It automatically converts to Apache 2.0 / MIT on January 1, 2030.
 
 ## 🙏 Acknowledgments
 
 - **Express.js** team for the excellent web framework
-- **Prisma** team for the amazing ORM and type safety  
+- **Prisma** team for the amazing ORM and type safety
 - **Resend** team for the modern email API
 - **Neon** team for serverless PostgreSQL
 - **Vercel** team for seamless deployment platform

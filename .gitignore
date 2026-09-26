@@ -4,6 +4,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.turbo/
 
 # Environment variables
 .env
@@ -145,7 +146,6 @@ temp/
 *.crt
 *.csr
 secrets/
-EOF < /dev/null
 # Agent files
 .agent/
 .agents/

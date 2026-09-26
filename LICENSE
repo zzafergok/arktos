@@ -1,21 +1,34 @@
-MIT License
+Business Source License 1.1
 
-Copyright (c) 2025 Zafer Gök
+Parameters:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Licensor: Zafer Gök
+Licensed Work: Arktos, including the create-arktos CLI generator, backend architectures, templates, and associated documentation.
+Additional Use Grant: You may use the Licensed Work free of charge for non-commercial, evaluation, educational, internal development, and testing purposes. Any production deployment, commercial offering, commercial client deliverables, or providing the Licensed Work (or modified versions thereof) as a paid backend service or competing product requires a separate commercial license agreement with the Licensor.
+Change Date: 2030-01-01
+Change License: Apache License, Version 2.0 (or at your option, MIT License)
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Notice:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The Business Source License 1.1 (the "License") is not an Open Source license.
+However, the Licensor pledges to grant an Open Source license on the Change Date.
+
+Text of the License:
+
+1. Grant of License.
+   Licensor hereby grants you the right to copy, modify, create derivative works, redistribute, and make non-commercial use of the Licensed Work, subject to the Additional Use Grant and other conditions set forth herein.
+
+2. Additional Use Grant.
+   As specified in the Parameters above, you are permitted to use the Licensed Work free of charge exclusively under the conditions defined in the Additional Use Grant. Use of the Licensed Work outside the Additional Use Grant without obtaining a commercial license from the Licensor is strictly prohibited.
+
+3. Commercial Inquiries.
+   To obtain a commercial license for production, commercial, or enterprise use, contact the Licensor at gok.zaferr@gmail.com or visit https://github.com/zzafergok/arktos.
+
+4. Change Date and Change License.
+   Effective on the Change Date specified in the Parameters above, the Licensor hereby grants you a license to the Licensed Work under the Change License specified in the Parameters above, without the restrictions of this License.
+
+5. Attribution and Notice.
+   You must retain all copyright notices, trademarks, and this License notice in all copies or substantial portions of the Licensed Work.
+
+6. Disclaimer of Warranties.
+   THE LICENSED WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE LICENSOR OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE LICENSED WORK OR THE USE OR OTHER DEALINGS IN THE LICENSED WORK.

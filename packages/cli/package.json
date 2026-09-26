@@ -1,0 +1,81 @@
+{
+  "name": "create-arktos",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "🚀 Production-ready Node.js & TypeScript backend boilerplate generator with Express, JWT, Prisma ORM, PostgreSQL (Neon), and Resend",
+  "license": "BSL-1.1",
+  "files": [
+    "index.js",
+    "cli",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "create-arktos": "./index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": {
+    "name": "Zafer Gök",
+    "email": "gok.zaferr@gmail.com",
+    "url": "https://github.com/zzafergok"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "node -e 'process.exit(0)'",
+    "type-check": "node -e 'process.exit(0)'",
+    "pack:check": "node scripts/check-tarball-size.mjs",
+    "test:smoke": "node scripts/smoke-test-template.mjs"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "express",
+    "jwt",
+    "authentication",
+    "prisma",
+    "orm",
+    "postgresql",
+    "database",
+    "resend",
+    "email",
+    "auth",
+    "security",
+    "middleware",
+    "boilerplate",
+    "template",
+    "generator",
+    "cli",
+    "backend",
+    "api",
+    "rest",
+    "starter",
+    "scaffold"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzafergok/arktos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zzafergok/arktos/issues"
+  },
+  "homepage": "https://github.com/zzafergok/arktos#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "ora": "^8.0.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.0.0",
+    "@types/prompts": "^2.4.9"
+  }
+}
