@@ -1,13 +1,13 @@
-import chalk from 'chalk'
-import prompts from 'prompts'
-import { validateProjectName } from './project-name.js'
+import chalk from 'chalk';
+import prompts from 'prompts';
+import { validateProjectName } from './project-name.js';
 
 export function printBanner(version) {
   console.log(`
   ${chalk.blue.bold('❄️  ARKTOS')} ${chalk.dim(`v${version}`)}
   ${chalk.gray('Production-ready Node.js & TypeScript Backend Generator')}
   ${chalk.dim('Express • JWT • Prisma ORM • PostgreSQL • Resend')}
-`)
+`);
 }
 
 export async function promptProjectName(defaultName = 'my-arktos-api') {
@@ -16,13 +16,13 @@ export async function promptProjectName(defaultName = 'my-arktos-api') {
     name: 'projectName',
     message: 'What is your backend project named?',
     initial: defaultName,
-    validate: (val) => {
-      const res = validateProjectName(val)
-      return res.isValid ? true : res.message
+    validate: val => {
+      const res = validateProjectName(val);
+      return res.isValid ? true : res.message;
     },
-  })
+  });
 
-  return response.projectName
+  return response.projectName;
 }
 
 export async function promptOverwrite(targetDir) {
@@ -31,9 +31,9 @@ export async function promptOverwrite(targetDir) {
     name: 'overwrite',
     message: `Directory "${chalk.yellow(targetDir)}" already exists. Overwrite?`,
     initial: false,
-  })
+  });
 
-  return Boolean(response.overwrite)
+  return Boolean(response.overwrite);
 }
 
 export function printSuccess({ projectName, targetDir, packageManager, commands }) {
@@ -50,5 +50,5 @@ export function printSuccess({ projectName, targetDir, packageManager, commands 
     ${chalk.cyan(`6. ${commands.dev}`)}      ${chalk.dim('# Start dev server at http://localhost:3001')}
 
   ${chalk.dim('Repository & issues:')} ${chalk.blue('https://github.com/zzafergok/arktos')}
-`)
+`);
 }

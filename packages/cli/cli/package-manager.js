@@ -1,29 +1,29 @@
-import { execSync } from 'node:child_process'
+import { execSync } from 'node:child_process';
 
 /**
  * Modern package manager detection with pnpm-first priority,
  * environment user-agent detection, and bun support.
  */
 export async function detectPackageManager() {
-  const userAgent = process.env.npm_config_user_agent
+  const userAgent = process.env.npm_config_user_agent;
   if (userAgent) {
-    if (userAgent.startsWith('pnpm')) return 'pnpm'
-    if (userAgent.startsWith('bun')) return 'bun'
-    if (userAgent.startsWith('yarn')) return 'yarn'
-    if (userAgent.startsWith('npm')) return 'npm'
+    if (userAgent.startsWith('pnpm')) return 'pnpm';
+    if (userAgent.startsWith('bun')) return 'bun';
+    if (userAgent.startsWith('yarn')) return 'yarn';
+    if (userAgent.startsWith('npm')) return 'npm';
   }
 
-  const managers = ['pnpm', 'bun', 'yarn', 'npm']
+  const managers = ['pnpm', 'bun', 'yarn', 'npm'];
   for (const pm of managers) {
     try {
-      execSync(`${pm} --version`, { stdio: 'ignore' })
-      return pm
+      execSync(`${pm} --version`, { stdio: 'ignore' });
+      return pm;
     } catch {
       // Not installed, try next
     }
   }
 
-  return 'pnpm'
+  return 'pnpm';
 }
 
 export function getPackageManagerCommands(packageManager = 'pnpm') {
@@ -60,7 +60,7 @@ export function getPackageManagerCommands(packageManager = 'pnpm') {
       migrate: 'npx prisma migrate dev',
       seed: 'npm run db:seed',
     },
-  }
+  };
 
-  return commands[packageManager] || commands.pnpm
+  return commands[packageManager] || commands.pnpm;
 }

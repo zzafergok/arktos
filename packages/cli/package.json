@@ -12,7 +12,7 @@
     "LICENSE"
   ],
   "bin": {
-    "create-arktos": "./index.js"
+    "create-arktos": "index.js"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -13,16 +13,19 @@
 Create a production-grade backend API in seconds:
 
 ### Using pnpm (Recommended)
+
 ```bash
 pnpm create arktos my-api
 ```
 
 ### Using npx
+
 ```bash
 npx create-arktos my-api
 ```
 
 ### Using bun
+
 ```bash
 bun create arktos my-api
 ```
@@ -86,6 +89,7 @@ Options:
 ## 📄 License
 
 This project is licensed under the **Business Source License 1.1 (BSL 1.1)**.
+
 - Free for evaluation, personal, educational, internal development, and non-commercial use.
 - Commercial or production deployments require a commercial license agreement with the author.
 - On **January 1, 2030**, the license automatically converts to **Apache 2.0 / MIT**.
