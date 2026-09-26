@@ -146,3 +146,6 @@ temp/
 *.csr
 secrets/
 EOF < /dev/null
+# Agent files
+.agent/
+.agents/
