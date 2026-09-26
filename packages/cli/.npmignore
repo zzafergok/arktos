@@ -13,7 +13,9 @@ tests/
 *.tsbuildinfo
 
 # Template caches & runtime files
-templates/**/node_modules/
+node_modules
+**/node_modules
+**/node_modules/**
 templates/**/dist/
 templates/**/build/
 templates/**/.turbo/

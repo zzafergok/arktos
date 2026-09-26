@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import routes from './routes';
 import { errorHandling, securityMiddleware, rateLimiter } from './middleware';
@@ -28,7 +28,7 @@ app.set('trust proxy', 1);
 app.use('/api', routes);
 
 // Health check route (outside of rate limiting)
-app.get('/health', async (req, res) => {
+app.get('/health', async (req: Request, res: Response) => {
   try {
     const dbService = DatabaseService.getInstance();
     const dbHealth = await dbService.healthCheck();

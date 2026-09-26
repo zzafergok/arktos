@@ -1,2 +1,8 @@
 packages:
   - 'packages/*'
+  - 'packages/cli/templates/*'
+
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  prisma: true
